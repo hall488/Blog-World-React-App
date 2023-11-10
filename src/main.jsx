@@ -19,23 +19,23 @@ const router = createBrowserRouter([
         children: [
             { index: true, element: <Home /> },
             {
-                path: '/Blog-World/Category/:id',
+                path: '/Blog-World-React-App/Category/:id',
                 element: <Category />,
             },
             {
-                path: '/Blog-World/Article/create',
+                path: '/Blog-World-React-App/Article/create',
                 element: <CreateArticle />,
             },
             {
-                path: '/Blog-World/Article/:id/update',
+                path: '/Blog-World-React-App/Article/:id/update',
                 element: <UpdateArticle />,
             },
             {
-                path: '/Blog-World/Article/:id',
+                path: '/Blog-World-React-App/Article/:id',
                 element: <Article />,
             },
             {
-                path: '/Blog-World/User/:id',
+                path: '/Blog-World-React-App/User/:id',
                 element: <User />,
             },
         ],
