@@ -28,10 +28,13 @@ function UpdateArticle() {
     }, []);
 
     const getCategories = async () => {
-        const response = await fetch(`http://localhost:5000/categories/list`, {
-            method: 'get',
-            mode: 'cors',
-        });
+        const response = await fetch(
+            `http://bw.christopherh.org/categories/list`,
+            {
+                method: 'get',
+                mode: 'cors',
+            },
+        );
 
         const json = await response.json();
 
@@ -39,10 +42,13 @@ function UpdateArticle() {
     };
 
     const getArticle = async () => {
-        const response = await fetch(`http://localhost:5000/articles/${id}`, {
-            method: 'get',
-            mode: 'cors',
-        });
+        const response = await fetch(
+            `http://bw.christopherh.org/articles/${id}`,
+            {
+                method: 'get',
+                mode: 'cors',
+            },
+        );
 
         const json = await response.json();
 
@@ -60,7 +66,7 @@ function UpdateArticle() {
         data.append('text', JSON.stringify(editorRef.current().getJSON()));
 
         const response = await fetch(
-            `http://localhost:5000/articles/${id}/update`,
+            `http://bw.christopherh.org/articles/${id}/update`,
             {
                 method: 'post',
                 mode: 'cors',

@@ -16,10 +16,13 @@ function CreateArticle() {
     }, []);
 
     const getCategories = async () => {
-        const response = await fetch(`http://localhost:5000/categories/list`, {
-            method: 'get',
-            mode: 'cors',
-        });
+        const response = await fetch(
+            `http://bw.christopherh.org/categories/list`,
+            {
+                method: 'get',
+                mode: 'cors',
+            },
+        );
 
         const json = await response.json();
 
@@ -36,11 +39,14 @@ function CreateArticle() {
 
         data.append('text', JSON.stringify(editorRef.current().getJSON()));
 
-        const response = await fetch(`http://localhost:5000/articles/create`, {
-            method: 'post',
-            mode: 'cors',
-            body: data,
-        });
+        const response = await fetch(
+            `http://bw.christopherh.org/articles/create`,
+            {
+                method: 'post',
+                mode: 'cors',
+                body: data,
+            },
+        );
 
         const json = await response.json();
 

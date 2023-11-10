@@ -13,10 +13,13 @@ function Home() {
     }, []);
 
     const getCategories = async () => {
-        const response = await fetch(`http://localhost:5000/categories/list`, {
-            method: 'get',
-            mode: 'cors',
-        });
+        const response = await fetch(
+            `http://bw.christopherh.org/categories/list`,
+            {
+                method: 'get',
+                mode: 'cors',
+            },
+        );
 
         const json = await response.json();
 

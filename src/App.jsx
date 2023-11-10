@@ -38,7 +38,7 @@ function App() {
         const data = new URLSearchParams();
         data.append('token', token);
 
-        let response = await fetch(`http://localhost:5000/users/verify`, {
+        let response = await fetch(`http://bw.christopherh.org/users/verify`, {
             method: 'post',
             mode: 'cors',
             body: data,
@@ -86,7 +86,7 @@ function App() {
 
         let data = getFormData(e.target);
 
-        const response = await fetch(`http://localhost:5000/users/login`, {
+        const response = await fetch(`http://bw.christopherh.org/users/login`, {
             method: 'post',
             mode: 'cors',
             body: data,
@@ -109,11 +109,14 @@ function App() {
 
         let data = getFormData(e.target);
 
-        const response = await fetch(`http://localhost:5000/users/signup`, {
-            method: 'post',
-            mode: 'cors',
-            body: data,
-        });
+        const response = await fetch(
+            `http://bw.christopherh.org/users/signup`,
+            {
+                method: 'post',
+                mode: 'cors',
+                body: data,
+            },
+        );
 
         const json = await response.json();
 

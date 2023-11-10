@@ -16,10 +16,13 @@ function Category() {
     }, []);
 
     const getCategoryArticles = async id => {
-        const response = await fetch(`http://localhost:5000/categories/${id}`, {
-            method: 'get',
-            mode: 'cors',
-        });
+        const response = await fetch(
+            `http://bw.christopherh.org/categories/${id}`,
+            {
+                method: 'get',
+                mode: 'cors',
+            },
+        );
 
         const json = await response.json();
 

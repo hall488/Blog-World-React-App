@@ -16,7 +16,7 @@ function User() {
     }, []);
 
     const getUserArticles = async id => {
-        const response = await fetch(`http://localhost:5000/users/${id}`, {
+        const response = await fetch(`http://bw.christopherh.org/users/${id}`, {
             method: 'get',
             mode: 'cors',
         });
