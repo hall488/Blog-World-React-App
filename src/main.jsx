@@ -13,7 +13,7 @@ import User from './components/User/User';
 
 const router = createBrowserRouter([
     {
-        path: '/',
+        path: '/Blog-World-React-App/',
         element: <Root />,
         errorElement: <ErrorPage />,
         children: [
