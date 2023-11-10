@@ -1,26 +1,32 @@
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './App.css';
 import styles from './App.module.css';
 import Header from './components/Header/Header';
 import Login from './components/Forms/Login';
 import Signup from './components/Forms/Signup';
-import Globe from './components/Globe/Globe';
-import Option from './components/Globe/Option';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import CreateCategory from './components/Forms/CreateCategory';
 
 library.add(faPlus);
 
-function App() {
+function Root() {
     let [currentUser, setCurrentUser] = useState(null);
-    let [showLogin, setShowLogin] = useState(false);
-    let [showSignup, setShowSignup] = useState(false);
     let [formErrors, setFormErrors] = useState([]);
     let [menuType, setMenuType] = useState('Categories');
+    const [menuItems, setMenuItems] = useState([]);
+    let [show, setShow] = useState({
+        login: false,
+        signup: false,
+        createArticle: false,
+        createCategory: false,
+        delete: false,
+    });
 
-    let titles = ['Categories', 'Articles'];
-    let titleIndex = 0;
+    useEffect(() => {
+        checkForUser();
+    }, []);
 
     const checkForUser = () => {
         verifyUser().then(json => {
@@ -49,22 +55,14 @@ function App() {
         return json;
     };
 
-    const handleShowLogin = () => {
-        setShowSignup(false);
-        setShowLogin(true);
-    };
-
-    const handleHideLogin = () => {
-        setShowLogin(false);
-    };
-
-    const handleShowSignup = () => {
-        setShowLogin(false);
-        setShowSignup(true);
-    };
-
-    const handleHideSignup = () => {
-        setShowSignup(false);
+    const handleShow = (type, bool) => {
+        if (bool) {
+            const _show = structuredClone(show);
+            Object.keys(_show).forEach(v => (_show[v] = false));
+            setShow({ ..._show, [type]: bool });
+        } else {
+            setShow({ ...show, [type]: bool });
+        }
     };
 
     const handleLogout = () => {
@@ -97,7 +95,7 @@ function App() {
         if (json.errors !== undefined) {
             setFormErrors(json.errors);
         } else {
-            handleHideLogin();
+            handleShow('login', false);
             localStorage.setItem('token', json.token);
             e.target.reset();
             checkForUser();
@@ -120,66 +118,74 @@ function App() {
         if (json.errors !== undefined) {
             setFormErrors(json.errors);
         } else {
-            handleHideSignup();
+            handleShow('signup', false);
             localStorage.setItem('token', json.token);
             e.target.reset();
             checkForUser();
         }
     };
 
-    const handleTitleLeft = () => {
-        titleIndex++;
+    const navigate = useNavigate();
 
-        if (titleIndex < 0) titleIndex = titles.length;
+    const navigateTo = path => {
+        navigate(`/${path}`);
     };
-
-    const handleTitleRight = () => {};
-
-    checkForUser();
 
     return (
         <>
             <div
-                className={`${showLogin || showSignup ? styles.blur : ''} ${
-                    styles.content
-                }`}
+                className={`${
+                    Object.values(show).some(Boolean) ? styles.blur : ''
+                } ${styles.content}`}
             >
                 <Header
                     handleLogout={handleLogout}
-                    handleShowLogin={handleShowLogin}
-                    handleShowSignup={handleShowSignup}
+                    handleShow={handleShow}
                     currentUser={currentUser}
+                    navigateTo={navigateTo}
                 />
-                {/* <Select /> */}
-                <div className={styles.menu}>
-                    {/* <Option word={'abcdefghijklmnopqrstuvxyz'} /> */}
-                    <div className={styles.title}>
-                        {menuType}
-                        <button className={styles.add}>Add Category</button>
-                    </div>
-                    <Globe setMenuType={setMenuType} />
-                </div>
+                <Outlet
+                    context={{
+                        currentUser,
+                        menuType,
+                        setMenuType,
+                        navigateTo,
+                        menuItems,
+                        setMenuItems,
+                        handleShow,
+                        show,
+                    }}
+                />
             </div>
 
             <Login
                 setFormErrors={setFormErrors}
                 formErrors={formErrors}
                 currentUser={currentUser}
-                showLogin={showLogin}
+                showLogin={show.login}
                 handleLogin={handleLogin}
-                handleHideLogin={handleHideLogin}
+                handleShow={handleShow}
             />
 
             <Signup
                 setFormErrors={setFormErrors}
                 formErrors={formErrors}
                 currentUser={currentUser}
-                showSignup={showSignup}
+                showSignup={show.signup}
                 handleSignup={handleSignup}
-                handleHideSignup={handleHideSignup}
+                handleShow={handleShow}
+            />
+
+            <CreateCategory
+                setFormErrors={setFormErrors}
+                formErrors={formErrors}
+                currentUser={currentUser}
+                showCreateCategory={show.createCategory}
+                handleShow={handleShow}
+                navigateTo={navigateTo}
             />
         </>
     );
 }
 
-export default App;
+export default Root;

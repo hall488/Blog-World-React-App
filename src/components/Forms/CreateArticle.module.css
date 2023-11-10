@@ -1,0 +1,27 @@
+.createArticle {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+    padding: 16px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.createArticle>form {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--test-color);
+    gap: 8px;
+    max-height: 100%;
+    padding: 8px;
+}
+
+.createArticle>form>input,
+.createArticle>form>select {
+    max-width: 300px;
+}
+
+.errors {
+    color: crimson;
+}

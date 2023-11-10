@@ -1,0 +1,42 @@
+.signup {
+    position: absolute;
+    width: 100vw;
+    height: 100svh;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.signup>.wrapper {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--secondary-color);
+    padding: 16px;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+}
+
+.wrapper>.exit {
+    width: min-content;
+    align-self: flex-end;
+    padding: 8px;
+}
+
+.wrapper>.exit:hover {
+    color: crimson;
+}
+
+.wrapper>form {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--test-color);
+    gap: 8px;
+}
+
+.errors {
+    align-self: center;
+    color: crimson;
+}
