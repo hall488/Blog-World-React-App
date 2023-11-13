@@ -1,5 +1,6 @@
 import { useParams, useOutletContext } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
+import { useNavigate } from 'react-router';
 import styles from './Article.module.css';
 import { useMemo } from 'react';
 import { generateHTML } from '@tiptap/html';
@@ -12,6 +13,7 @@ import TipTap from '../TipTap/TipTap';
 
 function Category() {
     let { id } = useParams();
+    const navigate = useNavigate();
     let { currentUser, navigateTo } = useOutletContext();
     let [leaveAComment, setLeaveAComment] = useState(false);
     let [showDelete, setShowDelete] = useState(false);
@@ -98,7 +100,7 @@ function Category() {
 
         await response.json();
 
-        window.location.reload();
+        navigate(0);
     };
 
     function GenComment(comment) {
@@ -160,7 +162,7 @@ function Category() {
 
         await response.json();
 
-        window.location.reload();
+        navigate(0);
     };
 
     const getJson = cb => {
@@ -190,7 +192,7 @@ function Category() {
         await response.json();
 
         setLeaveAComment(false);
-        window.location.reload();
+        navigate(0);
     };
 
     const handleDeleteBox = () => {
