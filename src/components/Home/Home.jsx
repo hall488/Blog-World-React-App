@@ -14,7 +14,7 @@ function Home() {
 
     const getCategories = async () => {
         const response = await fetch(
-            `http://bw.christopherh.org/categories/list`,
+            `https://bw.christopherh.org/categories/list`,
             {
                 method: 'get',
                 mode: 'cors',

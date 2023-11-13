@@ -29,7 +29,7 @@ function UpdateArticle() {
 
     const getCategories = async () => {
         const response = await fetch(
-            `http://bw.christopherh.org/categories/list`,
+            `https://bw.christopherh.org/categories/list`,
             {
                 method: 'get',
                 mode: 'cors',
@@ -43,7 +43,7 @@ function UpdateArticle() {
 
     const getArticle = async () => {
         const response = await fetch(
-            `http://bw.christopherh.org/articles/${id}`,
+            `https://bw.christopherh.org/articles/${id}`,
             {
                 method: 'get',
                 mode: 'cors',
@@ -66,7 +66,7 @@ function UpdateArticle() {
         data.append('text', JSON.stringify(editorRef.current().getJSON()));
 
         const response = await fetch(
-            `http://bw.christopherh.org/articles/${id}/update`,
+            `https://bw.christopherh.org/articles/${id}/update`,
             {
                 method: 'post',
                 mode: 'cors',

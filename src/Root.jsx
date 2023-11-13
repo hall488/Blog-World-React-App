@@ -44,7 +44,7 @@ function Root() {
         const data = new URLSearchParams();
         data.append('token', token);
 
-        let response = await fetch(`http://localhost:5000/users/verify`, {
+        let response = await fetch(`https://localhost:5000/users/verify`, {
             method: 'post',
             mode: 'cors',
             body: data,
@@ -84,7 +84,7 @@ function Root() {
 
         let data = getFormData(e.target);
 
-        const response = await fetch(`http://localhost:5000/users/login`, {
+        const response = await fetch(`https://localhost:5000/users/login`, {
             method: 'post',
             mode: 'cors',
             body: data,
@@ -107,7 +107,7 @@ function Root() {
 
         let data = getFormData(e.target);
 
-        const response = await fetch(`http://localhost:5000/users/signup`, {
+        const response = await fetch(`https://localhost:5000/users/signup`, {
             method: 'post',
             mode: 'cors',
             body: data,

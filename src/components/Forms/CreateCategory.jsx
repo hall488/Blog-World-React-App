@@ -19,7 +19,7 @@ function CreateCategory({
         data.append('token', localStorage.getItem('token'));
 
         const response = await fetch(
-            `http://bw.christopherh.org/categories/create`,
+            `https://bw.christopherh.org/categories/create`,
             {
                 method: 'post',
                 mode: 'cors',

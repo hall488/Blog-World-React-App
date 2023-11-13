@@ -17,7 +17,7 @@ function CreateArticle() {
 
     const getCategories = async () => {
         const response = await fetch(
-            `http://bw.christopherh.org/categories/list`,
+            `https://bw.christopherh.org/categories/list`,
             {
                 method: 'get',
                 mode: 'cors',
@@ -40,7 +40,7 @@ function CreateArticle() {
         data.append('text', JSON.stringify(editorRef.current().getJSON()));
 
         const response = await fetch(
-            `http://bw.christopherh.org/articles/create`,
+            `https://bw.christopherh.org/articles/create`,
             {
                 method: 'post',
                 mode: 'cors',

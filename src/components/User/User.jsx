@@ -16,10 +16,13 @@ function User() {
     }, []);
 
     const getUserArticles = async id => {
-        const response = await fetch(`http://bw.christopherh.org/users/${id}`, {
-            method: 'get',
-            mode: 'cors',
-        });
+        const response = await fetch(
+            `https://bw.christopherh.org/users/${id}`,
+            {
+                method: 'get',
+                mode: 'cors',
+            },
+        );
 
         const json = await response.json();
 

@@ -17,7 +17,7 @@ function Category() {
 
     const getCategoryArticles = async id => {
         const response = await fetch(
-            `http://bw.christopherh.org/categories/${id}`,
+            `https://bw.christopherh.org/categories/${id}`,
             {
                 method: 'get',
                 mode: 'cors',

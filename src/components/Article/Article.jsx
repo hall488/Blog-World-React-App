@@ -33,7 +33,7 @@ function Category() {
 
     const getArticle = async id => {
         const response = await fetch(
-            `http://bw.christopherh.org/articles/${id}`,
+            `https://bw.christopherh.org/articles/${id}`,
             {
                 method: 'get',
                 mode: 'cors',
@@ -88,7 +88,7 @@ function Category() {
         data.append('token', localStorage.getItem('token'));
 
         const response = await fetch(
-            `http://bw.christopherh.org/articles//${id}/comments/${cid}/delete`,
+            `https://bw.christopherh.org/articles//${id}/comments/${cid}/delete`,
             {
                 method: 'post',
                 mode: 'cors',
@@ -150,7 +150,7 @@ function Category() {
         data.append('token', localStorage.getItem('token'));
 
         const response = await fetch(
-            `http://bw.christopherh.org/articles/${id}/like`,
+            `https://bw.christopherh.org/articles/${id}/like`,
             {
                 method: 'post',
                 mode: 'cors',
@@ -179,7 +179,7 @@ function Category() {
         data.append('text', JSON.stringify(editorRef.current().getJSON()));
 
         const response = await fetch(
-            `http://bw.christopherh.org/articles/${id}/comments/create`,
+            `https://bw.christopherh.org/articles/${id}/comments/create`,
             {
                 method: 'post',
                 mode: 'cors',
@@ -207,7 +207,7 @@ function Category() {
         data.append('token', localStorage.getItem('token'));
 
         const response = await fetch(
-            `http://bw.christopherh.org/articles/${id}/delete`,
+            `https://bw.christopherh.org/articles/${id}/delete`,
             {
                 method: 'post',
                 mode: 'cors',
