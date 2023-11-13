@@ -24,7 +24,6 @@ function Globe() {
         let radius = circle.height / 2;
 
         if (dist(x, y, rect.width / 2, rect.height / 2) < radius + 10) {
-            console.log('mouse');
             if (e.buttons == 1) {
                 setGlobeState('grabbing');
                 let angle = Math.atan(
@@ -58,7 +57,6 @@ function Globe() {
         let circle = circleRef.current.getBoundingClientRect();
         let radius = circle.height / 2;
         if (dist(x, y, rect.width / 2, rect.height / 2) < radius + 10) {
-            console.log('touch');
             if (e.touches.length > 0) {
                 setGlobeState('grabbing');
                 let angle = Math.atan(
