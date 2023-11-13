@@ -42,7 +42,7 @@ function Option({ word, rotation, handleLink }) {
                         startOffset="50%"
                         id="textPath15427"
                         dy="0.079999998"
-                        dominantBaseline="middle"
+                        dominantBaseline="central"
                     >
                         {word}
                         <tspan id="tspan15423" />
