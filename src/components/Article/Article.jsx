@@ -74,7 +74,8 @@ function Category() {
                             .replace(/&#x5C;/gi, '\\')
                             .replace(/&#x2F;/gi, '/')
                             .replace(/&gt;/gi, `>`)
-                            .replace(/&lt;/gi, `<`),
+                            .replace(/&lt;/gi, `<`)
+                            .replace(/&#x27;/gi, `'`),
                     ),
                     extensions,
                 );
