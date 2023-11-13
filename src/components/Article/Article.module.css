@@ -4,10 +4,17 @@
     align-items: center;
     overflow-y: auto;
     box-sizing: border-box;
+    width: 100%;
+    padding: 16px;
 }
 
 .title {
     font-size: 32px;
+}
+
+.text {
+    width: 100%;
+    overflow-wrap: break-word;
 }
 
 .leaveComment {
@@ -23,6 +30,8 @@
 .actions {
     display: flex;
     gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .comments {
@@ -108,4 +117,9 @@
 
 .blur {
     filter: blur(3px);
+}
+
+pre {
+    text-wrap: wrap;
+    overflow-wrap: break-word;
 }

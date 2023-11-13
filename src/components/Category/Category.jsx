@@ -31,6 +31,14 @@ function Category() {
     return (
         <div className={styles.menu}>
             <div className={styles.title}>
+                <div
+                    className={styles.back}
+                    onClick={() => {
+                        navigateTo('/');
+                    }}
+                >
+                    Back to Categories
+                </div>
                 {menuType}
                 <button
                     style={{ display: currentUser ? 'flex' : 'none' }}
