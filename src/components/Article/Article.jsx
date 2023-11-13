@@ -71,7 +71,8 @@ function Category() {
                     JSON.parse(
                         article.text
                             .replace(/&quot;/gi, '"')
-                            .replace(/&#x5C;n/gi, `\\n`)
+                            .replace(/&#x5C;/gi, '\\')
+                            .replace(/&#x2F;/gi, '/')
                             .replace(/&gt;/gi, `>`)
                             .replace(/&lt;/gi, `<`),
                     ),
