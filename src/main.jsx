@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import Root from './Root.jsx';
 import ErrorPage from './Error-Page.jsx';
 import Home from './components/Home/Home';
@@ -11,7 +11,7 @@ import CreateArticle from './components/Forms/CreateArticle';
 import UpdateArticle from './components/Forms/UpdateArticle';
 import User from './components/User/User';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path: '/Blog-World-React-App/',
         element: <Root />,
