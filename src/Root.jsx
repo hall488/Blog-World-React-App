@@ -134,7 +134,7 @@ function Root() {
     const navigate = useNavigate();
 
     const navigateTo = path => {
-        navigate(`/${path}`);
+        navigate(`/Blog-World-React-App/${path}`);
     };
 
     return (
