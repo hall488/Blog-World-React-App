@@ -50,6 +50,7 @@ button {
   background-color: var(--primary-darker);
   cursor: pointer;
   transition: border-color 0.25s;
+  color: var(--secondary-color);
 }
 
 button:hover {
