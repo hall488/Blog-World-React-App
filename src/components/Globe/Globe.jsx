@@ -24,6 +24,7 @@ function Globe() {
         let radius = circle.height / 2;
 
         if (dist(x, y, rect.width / 2, rect.height / 2) < radius + 10) {
+            console.log('mouse');
             if (e.buttons == 1) {
                 setGlobeState('grabbing');
                 let angle = Math.atan(
@@ -57,6 +58,7 @@ function Globe() {
         let circle = circleRef.current.getBoundingClientRect();
         let radius = circle.height / 2;
         if (dist(x, y, rect.width / 2, rect.height / 2) < radius + 10) {
+            console.log('touch');
             if (e.touches.length > 0) {
                 setGlobeState('grabbing');
                 let angle = Math.atan(
@@ -73,12 +75,14 @@ function Globe() {
                 let adjustment =
                     (lastAngle.current + angle - baseAngle.current) % 360;
                 setRotation(adjustment);
-            } else {
-                setGlobeState('grab');
-                mouseDown.current = false;
-                lastAngle.current = rotation;
             }
         }
+    };
+
+    const handleTouchEnd = e => {
+        setGlobeState('grab');
+        mouseDown.current = false;
+        lastAngle.current = rotation;
     };
 
     const dist = (x1, y1, x2, y2) => {
@@ -128,6 +132,7 @@ function Globe() {
                         style={{ cursor: globeState }}
                         onMouseMove={handleMouseMove}
                         onTouchMove={handleTouchMove}
+                        onTouchEnd={handleTouchEnd}
                     >
                         <circle
                             id="path234"
