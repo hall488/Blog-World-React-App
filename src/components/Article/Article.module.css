@@ -4,8 +4,9 @@
     align-items: center;
     overflow-y: auto;
     box-sizing: border-box;
-    width: 100%;
+    width: clamp(300px, 75%, 900px);
     padding: 16px;
+    align-self: center;
 }
 
 .title {
