@@ -17,42 +17,6 @@
     transform: translateY(50%) scale(10);
 }
 
-/* @media (max-width: 1000px) {
-    .wrapper {
-        transform: translateY(32%);
-    }
-
-    .wrapper>svg {
-        transform: scale(1.2);
-    }
-}
-
-@media (max-width: 650px) {
-    .wrapper {
-        transform: translateY(35%);
-    }
-
-    .wrapper>svg {
-        transform: scale(2.4);
-    }
-}
-
-@media (max-width: 500px) {
-    .wrapper {
-        transform: translateY(35%);
-    }
-
-    .wrapper>svg {
-        transform: scale(2.3);
-    }
-}
-
-@media (max-height: 800px) {
-    .wrapper>svg {
-        transform: scale(1);
-    }
-} */
-
 .group>circle {
     fill: var(--primary-color);
     stroke: var(--secondary-color);

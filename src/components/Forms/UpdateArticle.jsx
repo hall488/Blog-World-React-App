@@ -24,7 +24,6 @@ function UpdateArticle() {
         });
         getArticle().then(res => {
             setArticle(res);
-            console.log(res.text);
         });
     }, []);
 
