@@ -41,9 +41,8 @@ function Option({ word, rotation, handleLink }) {
                         xlinkHref={`#${uuid}`}
                         startOffset="50%"
                         id="textPath15427"
-                        dy="0.079999998"
                     >
-                        <tspan dy={'.3em'} id="tspan15423">
+                        <tspan dy={'0.3em'} id="tspan15423">
                             {word}
                         </tspan>
                     </textPath>

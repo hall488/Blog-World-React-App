@@ -5,9 +5,11 @@
     justify-content: center;
     display: flex;
     width: 100%;
+    pointer-events: none;
 }
 
 .wrapper>svg {
+    pointer-events: all;
     position: absolute;
     bottom: 0;
     height: 12%;
